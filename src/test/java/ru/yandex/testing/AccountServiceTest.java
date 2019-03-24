@@ -12,14 +12,14 @@ import ru.yandex.testing.service.AccountService;
 /**
  * @author fbokovikov
  */
-@DatabaseSetup("classpath:account.xml")
 class AccountServiceTest extends FunctionalTest {
 
     @Autowired
     private AccountService accountService;
 
     @Test
-    @DatabaseTearDown
+    @DatabaseSetup("classpath:account.xml")
+    @DatabaseTearDown("classpath:empty-account.xml")
     void getAccount() {
         Account account = accountService.getAccount(100)
                 .orElseThrow(() -> new IllegalArgumentException());
