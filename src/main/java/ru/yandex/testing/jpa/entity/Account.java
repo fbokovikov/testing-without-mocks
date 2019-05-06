@@ -1,4 +1,4 @@
-package ru.yandex.testing.jpa.model;
+package ru.yandex.testing.jpa.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

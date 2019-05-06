@@ -1,7 +1,7 @@
 package ru.yandex.testing.api.dto;
 
 import lombok.Value;
-import ru.yandex.testing.jpa.model.Account;
+import ru.yandex.testing.jpa.entity.Account;
 
 import java.beans.ConstructorProperties;
 

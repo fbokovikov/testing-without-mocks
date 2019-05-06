@@ -9,9 +9,12 @@ import static org.junit.Assert.assertThat;
 /**
  * @author fbokovikov
  */
-public class JsonTestUtil {
+public final class JsonTestUtil {
 
     private static final JsonParser PARSER = new JsonParser();
+
+    private JsonTestUtil() {
+    }
 
     public static void assertEquals(String expected, String actual) {
         JsonElement actualJson = parseJson(actual);

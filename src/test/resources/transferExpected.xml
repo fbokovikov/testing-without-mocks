@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <ACCOUNT
+            ID="100"
+            AMOUNT="400.0"
+    />
+    <ACCOUNT
+            ID="200"
+            AMOUNT="700.0"
+    />
+</dataset>

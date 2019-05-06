@@ -22,8 +22,6 @@ import org.springframework.web.client.RestTemplate;
 })
 public abstract class FunctionalTest {
 
-    protected static final RestTemplate REST_TEMPLATE = new RestTemplate();
-
     @LocalServerPort
     private int port;
 

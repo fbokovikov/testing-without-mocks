@@ -6,7 +6,7 @@ import com.github.springtestdbunit.annotation.ExpectedDatabase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.yandex.testing.jpa.model.Account;
+import ru.yandex.testing.jpa.entity.Account;
 import ru.yandex.testing.service.AccountService;
 
 /**

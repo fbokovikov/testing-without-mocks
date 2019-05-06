@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@EntityScan("ru.yandex.testing.jpa.model")
+@EntityScan("ru.yandex.testing.jpa.entity")
 @EnableJpaRepositories("ru.yandex.testing.jpa.repository")
 public class JpaRepositoriesConfig {
 }
