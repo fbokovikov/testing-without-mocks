@@ -1,5 +1,6 @@
 package ru.yandex.testing.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.yandex.testing.jpa.model.Account;
@@ -11,14 +12,10 @@ import java.util.Optional;
  * @author fbokovikov
  */
 @Service
+@AllArgsConstructor
 public class AccountService {
 
     private final AccountRepository accountRepository;
-
-    @Autowired
-    public AccountService(AccountRepository accountRepository) {
-        this.accountRepository = accountRepository;
-    }
 
     public Account createAccount(double amount) {
         var account = new Account();
