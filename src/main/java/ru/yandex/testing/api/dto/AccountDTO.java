@@ -1,6 +1,6 @@
 package ru.yandex.testing.api.dto;
 
-import lombok.Data;
+import lombok.Value;
 import ru.yandex.testing.jpa.model.Account;
 
 import java.beans.ConstructorProperties;
@@ -8,7 +8,7 @@ import java.beans.ConstructorProperties;
 /**
  * @author fbokovikov
  */
-@Data
+@Value
 public class AccountDTO {
 
     private final int id;

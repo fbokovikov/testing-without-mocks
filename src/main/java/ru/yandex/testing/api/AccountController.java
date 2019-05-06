@@ -18,7 +18,7 @@ import ru.yandex.testing.service.AccountService;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping("/account")
+@RequestMapping("/accounts")
 public class AccountController {
     private final AccountService accountService;
 
@@ -30,8 +30,17 @@ public class AccountController {
 
     @GetMapping("/{id}")
     public AccountDTO getAccount(@PathVariable int id) {
-        Account account = accountService.getAccount(id)
+        return new AccountDTO(account(id));
+    }
+
+    @PostMapping("/{id}/deposit")
+    public AccountDTO updateAmount(@PathVariable int id, @RequestParam double amount) {
+        accountService.deposit(id, amount);
+        return new AccountDTO(account(id));
+    }
+
+    private Account account(int id) {
+        return accountService.getAccount(id)
                 .orElseThrow(() -> new HttpClientErrorException(HttpStatus.BAD_REQUEST));
-        return new AccountDTO(account);
     }
 }

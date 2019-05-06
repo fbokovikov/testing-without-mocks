@@ -1,8 +1,8 @@
 package ru.yandex.testing.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.yandex.testing.jpa.model.Account;
 import ru.yandex.testing.jpa.repository.AccountRepository;
 
@@ -25,5 +25,10 @@ public class AccountService {
 
     public Optional<Account> getAccount(int id) {
         return accountRepository.findById(id);
+    }
+
+    @Transactional
+    public void deposit(int id, double amount) {
+        accountRepository.deposit(id, amount);
     }
 }
