@@ -2,15 +2,17 @@ package ru.yandex.testing;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author fbokovikov
  */
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestExecutionListeners({
         DependencyInjectionTestExecutionListener.class,
         DirtiesContextTestExecutionListener.class,
@@ -18,5 +20,14 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
         DbUnitTestExecutionListener.class
         //TransactionDbUnitTestExecutionListener.class
 })
-public class FunctionalTest {
+public abstract class FunctionalTest {
+
+    protected static final RestTemplate REST_TEMPLATE = new RestTemplate();
+
+    @LocalServerPort
+    private int port;
+
+    protected String baseUrl() {
+        return "http://localhost:" + port;
+    }
 }
